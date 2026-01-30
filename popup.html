@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Archived</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="logo">⬇</span>
+    <span class="name">Archived</span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-tab="recent">Recent</button>
+    <button class="tab" data-tab="collections">Collections</button>
+  </div>
+</header>
+
+<section id="settings">
+  <label>
+    <input type="checkbox" id="newTab">
+    Open in new tab
+  </label>
+
+  <label>
+    Provider
+    <select id="provider">
+      <option value="archive.is">archive.is</option>
+      <option value="archive.today">archive.today</option>
+      <option value="archive.ph">archive.ph</option>
+    </select>
+  </label>
+</section>
+<input
+  type="search"
+  id="search"
+  placeholder="Search saved pages..."
+/>
+
+<main>
+  <div id="recent" class="panel active"></div>
+  <div id="collections" class="panel"></div>
+</main>
+
+<footer>
+  <button id="archiveNow">Archive this page</button>
+</footer>
+
+<script src="popup.js"></script>
+
+<div id="collectionModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Add to collection</h3>
+
+    <select id="collectionSelect">
+      <option value="">New collection…</option>
+    </select>
+
+    <input
+      id="collectionInput"
+      type="text"
+      placeholder="Collection name"
+    />
+
+    <div class="modal-actions">
+      <button id="saveToCollection">Save</button>
+      <button id="cancelCollection">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

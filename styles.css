@@ -1,0 +1,162 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111;
+  --muted: #777;
+  --card: #f4f4f5;
+  --accent: #5b5ef7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --fg: #eaeaea;
+    --muted: #aaa;
+    --card: #1c1c1e;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 12px;
+  width: 320px;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+header {
+  margin-bottom: 10px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.tabs {
+  display: flex;
+  margin-top: 8px;
+}
+
+input[type="search"] {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--card);
+  background: transparent;
+  color: var(--fg);
+  margin: 8px 0;
+}
+
+.card.clickable {
+  cursor: pointer;
+}
+
+
+
+.tab {
+  flex: 1;
+  padding: 6px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tab.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+#settings {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+main {
+  min-height: 180px;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.card {
+  background: var(--card);
+  padding: 8px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+}
+
+.card small {
+  color: var(--muted);
+}
+
+footer {
+  margin-top: 10px;
+}
+
+footer button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #121826;
+  padding: 16px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 320px;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+

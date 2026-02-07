@@ -5,8 +5,20 @@
   "description": "Save and organize archived versions of web pages",
   "permissions": ["tabs", "storage"],
   "action": {
-    "default_title": "Open in archive.is",
-    "default_popup": "popup.html"
+    "default_title": "Archived",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/Archived logo v2 - 128x128.png",
+      "32": "icons/Archived logo v2 - 128x128.png",
+      "48": "icons/Archived logo v2 - 128x128.png",
+      "128": "icons/Archived logo v2 - 128x128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/Archived logo v2 - 128x128.png",
+    "32": "icons/Archived logo v2 - 128x128.png",
+    "48": "icons/Archived logo v2 - 128x128.png",
+    "128": "icons/Archived logo v2 - 128x128.png"
   },
   "background": {
     "scripts": ["background.js"]
@@ -17,6 +29,14 @@
         "default": "Alt+A"
       },
       "description": "Archive current tab"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "archived@programmer.net",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
     }
   }
 }

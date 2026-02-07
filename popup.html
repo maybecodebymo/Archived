@@ -8,30 +8,63 @@
 <body>
 
 <header>
-  <div class="brand">
-    <span class="logo">⬇</span>
-    <span class="name">Archived</span>
+  <div class="brand-row">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">
+        <img src="icons/Archived logo v2.svg" alt="" />
+      </span>
+      <span class="name">Archived</span>
+    </div>
+    <button id="themeToggle" class="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle theme">
+      <span class="toggle-thumb"></span>
+    </button>
   </div>
   <div class="tabs">
     <button class="tab active" data-tab="recent">Recent</button>
     <button class="tab" data-tab="collections">Collections</button>
+    <button class="tab" data-tab="history">History</button>
+    <div class="tab-indicator"></div>
   </div>
 </header>
 
-<section id="settings">
-  <label>
-    <input type="checkbox" id="newTab">
-    Open in new tab
-  </label>
+<div class="cta">
+  <button id="archiveNow">Archive this page</button>
+</div>
 
-  <label>
+<div id="collectionHero" class="collection-hero" aria-hidden="true">
+  <button id="collectionBack" class="icon-btn" aria-label="Back">&#8592;</button>
+  <span id="collectionHeroTitle"></span>
+  <button id="collectionHeroMenu" class="icon-btn menu" aria-label="Collection menu">&#8942;</button>
+</div>
+
+<section id="settings">
+  <div class="setting-toggle">
+    <span>Open in new tab</span>
+    <button
+      id="newTabToggle"
+      class="switch"
+      type="button"
+      role="switch"
+      aria-checked="false"
+      aria-label="Open in new tab"
+    >
+      <span class="toggle-thumb"></span>
+    </button>
+  </div>
+
+  <label class="provider">
     Provider
-    <select id="provider">
+    <button id="providerBtn" class="select-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+      <span id="providerLabel">archive.is</span>
+      <span class="chev">v</span>
+    </button>
+    <select id="provider" class="native-select">
       <option value="archive.is">archive.is</option>
       <option value="archive.today">archive.today</option>
       <option value="archive.ph">archive.ph</option>
     </select>
   </label>
+
 </section>
 <input
   type="search"
@@ -39,20 +72,23 @@
   placeholder="Search saved pages..."
 />
 
+<div id="historyBar" class="history-bar">
+  <button id="historyMenu" class="icon-btn menu" aria-label="History menu">&#8942;</button>
+</div>
+
 <main>
   <div id="recent" class="panel active"></div>
   <div id="collections" class="panel"></div>
+  <div id="history" class="panel"></div>
 </main>
 
-<footer>
-  <button id="archiveNow">Archive this page</button>
-</footer>
 
-<script src="popup.js"></script>
+
+
 
 <div id="collectionModal" class="modal hidden">
   <div class="modal-content">
-    <h3>Add to collection</h3>
+    <h3 id="modalTitle">Add to collection</h3>
 
     <select id="collectionSelect">
       <option value="">New collection…</option>
@@ -71,5 +107,22 @@
   </div>
 </div>
 
+<div id="confirmModal" class="modal hidden">
+  <div class="modal-content">
+    <h3 id="confirmTitle">Clear history</h3>
+    <p id="confirmMessage" class="modal-message">
+      Clear all history? This cannot be undone.
+    </p>
+    <div class="modal-actions">
+      <button id="confirmAction" class="danger">Clear history</button>
+      <button id="confirmCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+
 </body>
 </html>
+
+
